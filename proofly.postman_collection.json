@@ -1,0 +1,192 @@
+{
+  "info": {
+    "_postman_id": " proofly-backend-collection-v1",
+    "name": "Proofly - Testimonial & Social Proof Backend",
+    "description": "Complete Postman collection for Proofly REST API.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Signup",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Sarah Connor\",\n  \"email\": \"owner@proofly.io\",\n  \"username\": \"sarah_proofly\",\n  \"password\": \"Password123!\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/auth/signup", "host": ["{{baseUrl}}"], "path": ["auth", "signup"] }
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"owner@proofly.io\",\n  \"password\": \"Password123!\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/auth/login", "host": ["{{baseUrl}}"], "path": ["auth", "login"] }
+          }
+        },
+        {
+          "name": "Refresh Token",
+          "request": {
+            "method": "POST",
+            "url": { "raw": "{{baseUrl}}/auth/refresh-token", "host": ["{{baseUrl}}"], "path": ["auth", "refresh-token"] }
+          }
+        },
+        {
+          "name": "Get Current User Profile",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{accessToken}}" }],
+            "url": { "raw": "{{baseUrl}}/auth/me", "host": ["{{baseUrl}}"], "path": ["auth", "me"] }
+          }
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "method": "POST",
+            "url": { "raw": "{{baseUrl}}/auth/logout", "host": ["{{baseUrl}}"], "path": ["auth", "logout"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Spaces (Owner)",
+      "item": [
+        {
+          "name": "Create Space",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{accessToken}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Acme Corp Testimonials\",\n  \"slug\": \"acme-corp\",\n  \"prompt\": \"How has Acme Corp helped your business scale?\",\n  \"avatarSetting\": \"optional\",\n  \"ratingSetting\": \"required\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/spaces", "host": ["{{baseUrl}}"], "path": ["spaces"] }
+          }
+        },
+        {
+          "name": "Get My Spaces",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{accessToken}}" }],
+            "url": { "raw": "{{baseUrl}}/spaces", "host": ["{{baseUrl}}"], "path": ["spaces"] }
+          }
+        },
+        {
+          "name": "Get Space By ID",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{accessToken}}" }],
+            "url": { "raw": "{{baseUrl}}/spaces/{{spaceId}}", "host": ["{{baseUrl}}"], "path": ["spaces", "{{spaceId}}"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Public Reviews",
+      "item": [
+        {
+          "name": "Get Public Space Details",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/public/spaces/acme-corp", "host": ["{{baseUrl}}"], "path": ["public", "spaces", "acme-corp"] }
+          }
+        },
+        {
+          "name": "Submit Testimonial",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"clientName\": \"Alex Johnson\",\n  \"email\": \"alex.j@techcorp.com\",\n  \"companyRole\": \"CTO at TechCorp\",\n  \"rating\": 5,\n  \"reviewText\": \"Proofly transformed how we collect customer social proof!\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/public/spaces/acme-corp/testimonials", "host": ["{{baseUrl}}"], "path": ["public", "spaces", "acme-corp", "testimonials"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Moderation",
+      "item": [
+        {
+          "name": "Get Moderation Testimonials",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{accessToken}}" }],
+            "url": { "raw": "{{baseUrl}}/testimonials?status=pending", "host": ["{{baseUrl}}"], "path": ["testimonials"], "query": [{ "key": "status", "value": "pending" }] }
+          }
+        },
+        {
+          "name": "Update Status",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{accessToken}}" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"status\": \"approved\"\n}" },
+            "url": { "raw": "{{baseUrl}}/testimonials/{{testimonialId}}/status", "host": ["{{baseUrl}}"], "path": ["testimonials", "{{testimonialId}}", "status"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Analytics",
+      "item": [
+        {
+          "name": "Summary Stats",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{accessToken}}" }],
+            "url": { "raw": "{{baseUrl}}/analytics/{{spaceId}}/summary", "host": ["{{baseUrl}}"], "path": ["analytics", "{{spaceId}}", "summary"] }
+          }
+        },
+        {
+          "name": "Star Distribution",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{accessToken}}" }],
+            "url": { "raw": "{{baseUrl}}/analytics/{{spaceId}}/distribution", "host": ["{{baseUrl}}"], "path": ["analytics", "{{spaceId}}", "distribution"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Wall of Love & Embeds",
+      "item": [
+        {
+          "name": "Wall of Love",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/public/spaces/acme-corp/wall", "host": ["{{baseUrl}}"], "path": ["public", "spaces", "acme-corp", "wall"] }
+          }
+        },
+        {
+          "name": "Get Embed Generator Config",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/public/spaces/acme-corp/embed?type=carousel&theme=light", "host": ["{{baseUrl}}"], "path": ["public", "spaces", "acme-corp", "embed"], "query": [{ "key": "type", "value": "carousel" }, { "key": "theme", "value": "light" }] }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:5000/api" },
+    { "key": "accessToken", "value": "" },
+    { "key": "spaceId", "value": "" },
+    { "key": "testimonialId", "value": "" }
+  ]
+}
