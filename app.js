@@ -58,6 +58,9 @@ app.get('/health', (req, res) => {
   });
 });
 
+// Static files for web interface & live demo website
+app.use(express.static('public'));
+
 // API Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/spaces', spaceRoutes);
