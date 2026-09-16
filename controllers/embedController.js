@@ -25,6 +25,8 @@ const getWallOfLove = async (req, res, next) => {
       filter.featured = true;
     }
 
+    const spaceObj = space.toObject();
+
     const skip = (Number(page) - 1) * Number(limit);
     const total = await Testimonial.countDocuments(filter);
     const testimonials = await Testimonial.find(filter)
@@ -41,7 +43,7 @@ const getWallOfLove = async (req, res, next) => {
         slug: space.slug,
         logo: space.logo,
         theme: {
-          ...space.theme,
+          ...(spaceObj.theme || {}),
           overrideMode: theme,
         },
       },
