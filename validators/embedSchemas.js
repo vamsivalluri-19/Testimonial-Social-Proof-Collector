@@ -6,14 +6,18 @@ const embedQuerySchema = z.object({
   width: z.string().optional().default('100%'),
   height: z.string().optional().default('600px'),
   avatarVisibility: z
-    .enum(['true', 'false', 'show', 'hide'])
-    .transform((val) => val === 'true' || val === 'show')
-    .optional()
+    .preprocess((val) => {
+      if (val === undefined || val === null || val === '') return true;
+      if (typeof val === 'boolean') return val;
+      return val === 'true' || val === 'show';
+    }, z.boolean())
     .default(true),
   ratingVisibility: z
-    .enum(['true', 'false', 'show', 'hide'])
-    .transform((val) => val === 'true' || val === 'show')
-    .optional()
+    .preprocess((val) => {
+      if (val === undefined || val === null || val === '') return true;
+      if (typeof val === 'boolean') return val;
+      return val === 'true' || val === 'show';
+    }, z.boolean())
     .default(true),
 });
 
