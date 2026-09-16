@@ -10,8 +10,8 @@
   <style>
     :root {
       --bg-dark: #0f172a;
-      --bg-card: rgba(30, 41, 59, 0.7);
-      --bg-card-hover: rgba(51, 65, 85, 0.8);
+      --bg-card: rgba(30, 41, 59, 0.75);
+      --bg-card-hover: rgba(51, 65, 85, 0.9);
       --primary: #6366f1;
       --primary-hover: #4f46e5;
       --accent: #06b6d4;
@@ -20,7 +20,7 @@
       --danger: #ef4444;
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
-      --border: rgba(255, 255, 255, 0.1);
+      --border: rgba(255, 255, 255, 0.12);
       --glass-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
     }
 
@@ -40,8 +40,8 @@
     }
 
     header {
-      background: rgba(15, 23, 42, 0.8);
-      backdrop-filter: blur(12px);
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
@@ -50,6 +50,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
 
     .logo-group {
@@ -59,8 +61,8 @@
     }
 
     .logo-icon {
-      width: 40px;
-      height: 40px;
+      width: 42px;
+      height: 42px;
       background: linear-gradient(135deg, var(--primary), var(--accent));
       border-radius: 12px;
       display: flex;
@@ -70,12 +72,12 @@
       font-weight: 800;
       font-size: 1.4rem;
       color: white;
-      box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
+      box-shadow: 0 0 18px rgba(99, 102, 241, 0.5);
     }
 
     .logo-title {
       font-family: 'Outfit', sans-serif;
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       font-weight: 800;
       background: linear-gradient(to right, #ffffff, #a5f3fc);
       -webkit-background-clip: text;
@@ -85,29 +87,36 @@
     .nav-tabs {
       display: flex;
       gap: 0.5rem;
-      background: rgba(30, 41, 59, 0.6);
-      padding: 0.25rem;
+      background: rgba(30, 41, 59, 0.7);
+      padding: 0.3rem;
       border-radius: 9999px;
       border: 1px solid var(--border);
     }
 
     .nav-tab {
-      padding: 0.6rem 1.2rem;
+      padding: 0.6rem 1.25rem;
       border-radius: 9999px;
       font-size: 0.9rem;
-      font-weight: 500;
+      font-weight: 600;
       color: var(--text-muted);
       cursor: pointer;
       transition: all 0.2s ease;
       border: none;
       background: transparent;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-tab:hover {
+      color: white;
+      background: rgba(255, 255, 255, 0.05);
     }
 
     .nav-tab.active {
       background: linear-gradient(135deg, var(--primary), var(--primary-hover));
       color: white;
-      font-weight: 600;
-      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+      box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
     }
 
     .container {
@@ -120,7 +129,7 @@
 
     .hero-banner {
       text-align: center;
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
     }
 
     .hero-badge {
@@ -132,7 +141,7 @@
       border-radius: 9999px;
       font-size: 0.85rem;
       font-weight: 600;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
     }
 
     .hero-title {
@@ -160,7 +169,7 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
+      from { opacity: 0; transform: translateY(8px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
@@ -176,17 +185,17 @@
       background: var(--bg-card);
       backdrop-filter: blur(16px);
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: 20px;
       padding: 1.5rem;
       box-shadow: var(--glass-shadow);
-      display: flex;
-      flex-direction: column;
     }
 
     .stat-label {
       color: var(--text-muted);
       font-size: 0.85rem;
-      font-weight: 500;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
       margin-bottom: 0.5rem;
     }
 
@@ -220,8 +229,8 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: all 0.3s ease;
       position: relative;
+      transition: all 0.3s ease;
     }
 
     .testimonial-card:hover {
@@ -234,7 +243,7 @@
       display: flex;
       align-items: center;
       gap: 1rem;
-      margin-bottom: 1rem;
+      margin-top: 1rem;
     }
 
     .avatar {
@@ -257,8 +266,9 @@
 
     .stars {
       color: #fbbf24;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       margin-bottom: 0.75rem;
+      letter-spacing: 0.1em;
     }
 
     .review-text {
@@ -266,14 +276,13 @@
       font-size: 0.95rem;
       line-height: 1.6;
       margin-bottom: 1.25rem;
+      font-style: italic;
     }
 
-    .featured-badge {
+    .badge-pill {
       position: absolute;
       top: 1rem;
       right: 1rem;
-      background: linear-gradient(135deg, #f59e0b, #d97706);
-      color: white;
       font-size: 0.7rem;
       font-weight: 700;
       padding: 0.25rem 0.6rem;
@@ -282,7 +291,53 @@
       letter-spacing: 0.05em;
     }
 
-    /* Review Form */
+    .badge-featured {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: white;
+    }
+
+    .badge-status {
+      left: 1rem;
+      right: auto;
+    }
+
+    .badge-approved { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); }
+    .badge-pending { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
+    .badge-archived { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4); }
+
+    /* Action Buttons inside Card */
+    .card-actions {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+
+    .btn-action {
+      padding: 0.45rem 0.85rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .btn-approve { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); }
+    .btn-approve:hover { background: var(--success); color: white; }
+
+    .btn-feature { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
+    .btn-feature:hover { background: var(--warning); color: white; }
+
+    .btn-delete { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4); }
+    .btn-delete:hover { background: var(--danger); color: white; }
+
+    /* Form Styles */
     .form-card {
       max-width: 600px;
       margin: 0 auto;
@@ -308,7 +363,7 @@
 
     .form-input, .form-textarea, .form-select {
       width: 100%;
-      padding: 0.8rem 1rem;
+      padding: 0.85rem 1.1rem;
       background: rgba(15, 23, 42, 0.7);
       border: 1px solid var(--border);
       border-radius: 12px;
@@ -321,28 +376,33 @@
 
     .form-input:focus, .form-textarea:focus, .form-select:focus {
       border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
     }
 
     .star-rating-picker {
       display: flex;
       gap: 0.5rem;
-      font-size: 1.8rem;
+      font-size: 2rem;
       cursor: pointer;
+      user-select: none;
     }
 
     .star-rating-picker span {
       color: #475569;
-      transition: color 0.15s ease;
+      transition: transform 0.15s ease, color 0.15s ease;
+    }
+
+    .star-rating-picker span:hover {
+      transform: scale(1.2);
     }
 
     .star-rating-picker span.active {
       color: #fbbf24;
     }
 
-    .btn {
+    .btn-primary {
       width: 100%;
-      padding: 0.9rem;
+      padding: 0.95rem;
       background: linear-gradient(135deg, var(--primary), var(--primary-hover));
       color: white;
       border: none;
@@ -354,12 +414,27 @@
       box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
     }
 
-    .btn:hover {
+    .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+      box-shadow: 0 6px 22px rgba(99, 102, 241, 0.6);
     }
 
-    /* Embed Code Snippet */
+    .btn-secondary {
+      padding: 0.6rem 1.2rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--border);
+      color: white;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
     .code-block {
       background: rgba(2, 6, 23, 0.9);
       border: 1px solid var(--border);
@@ -370,7 +445,21 @@
       color: #38bdf8;
       overflow-x: auto;
       margin-top: 1rem;
+      white-space: pre-wrap;
+      word-break: break-all;
     }
+
+    .alert-box {
+      padding: 1rem;
+      border-radius: 12px;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .alert-success { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); }
+    .alert-danger { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4); }
 
     footer {
       border-top: 1px solid var(--border);
@@ -390,19 +479,19 @@
       <div class="logo-title">Proofly</div>
     </div>
     <nav class="nav-tabs">
-      <button class="nav-tab active" onclick="switchTab('wall')">💖 Wall of Love</button>
-      <button class="nav-tab" onclick="switchTab('submit')">✍️ Submit Review</button>
-      <button class="nav-tab" onclick="switchTab('moderation')">🛡️ Moderation</button>
-      <button class="nav-tab" onclick="switchTab('embed')">🧩 Embed Code</button>
+      <button class="nav-tab active" id="tabBtn-wall" onclick="switchTab('wall')">💖 Wall of Love</button>
+      <button class="nav-tab" id="tabBtn-submit" onclick="switchTab('submit')">✍️ Submit Review</button>
+      <button class="nav-tab" id="tabBtn-moderation" onclick="switchTab('moderation')">🛡️ Moderation</button>
+      <button class="nav-tab" id="tabBtn-embed" onclick="switchTab('embed')">🧩 Embed Widget</button>
     </nav>
   </header>
 
   <div class="container">
 
     <div class="hero-banner">
-      <div class="hero-badge">🟢 LIVE BACKEND CONNECTED</div>
-      <h1 class="hero-title">Social Proof & Testimonial Collector</h1>
-      <p class="hero-subtitle">Collect, moderate, analyze, and embed glowing customer reviews in real-time with zero friction.</p>
+      <div class="hero-badge">🟢 BACKEND REST API CONNECTED</div>
+      <h1 class="hero-title">Testimonial & Social Proof Collector</h1>
+      <p class="hero-subtitle">Collect, moderate, analyze, and embed customer reviews in real time.</p>
     </div>
 
     <!-- TAB 1: WALL OF LOVE -->
@@ -410,7 +499,10 @@
       <div class="stats-grid" id="statsContainer">
         <!-- Rendered via JS -->
       </div>
-      <h2 style="margin-bottom: 1.5rem; font-family: 'Outfit', sans-serif;">Approved Customer Testimonials</h2>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+        <h2 style="font-family: 'Outfit', sans-serif;">Approved Customer Testimonials</h2>
+        <button class="btn-secondary" onclick="loadWallOfLove()">🔄 Refresh Wall</button>
+      </div>
       <div class="testimonials-grid" id="wallContainer">
         <!-- Rendered via JS -->
       </div>
@@ -424,7 +516,7 @@
         
         <form id="publicReviewForm" onsubmit="handleReviewSubmit(event)">
           <div class="form-group">
-            <label class="form-label">Rating</label>
+            <label class="form-label">Star Rating</label>
             <div class="star-rating-picker" id="starPicker">
               <span onclick="setRating(1)">★</span>
               <span onclick="setRating(2)">★</span>
@@ -454,16 +546,38 @@
             <input type="text" class="form-input" id="companyRole" placeholder="e.g. CTO at TechCorp">
           </div>
 
-          <button type="submit" class="btn" id="submitBtn">Send Testimonial ✨</button>
+          <button type="submit" class="btn-primary" id="submitBtn">Send Testimonial ✨</button>
         </form>
-        <div id="formAlert" style="margin-top: 1rem; text-align: center; display: none;"></div>
+        <div id="formAlert" style="display: none;"></div>
       </div>
     </div>
 
     <!-- TAB 3: MODERATION -->
     <div id="tab-moderation" class="tab-content">
-      <h2 style="margin-bottom: 1.5rem; font-family: 'Outfit', sans-serif;">Owner Moderation Dashboard</h2>
-      <div id="moderationContainer">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+        <h2 style="font-family: 'Outfit', sans-serif;">Owner Moderation Dashboard</h2>
+        <div style="display: flex; gap: 0.5rem; align-items: center;">
+          <button class="btn-secondary" onclick="quickLoginOwner()">🔑 Quick Demo Login as Owner</button>
+          <button class="btn-secondary" onclick="loadModerationData()">🔄 Reload Reviews</button>
+        </div>
+      </div>
+
+      <div id="authStatusBanner" class="alert-box alert-success" style="margin-bottom: 1.5rem; text-align: left; display: flex; justify-content: space-between; align-items: center;">
+        <span>Logged in as <strong>owner@proofly.io</strong></span>
+        <button class="btn-secondary" style="padding: 0.3rem 0.6rem; font-size: 0.75rem;" onclick="logoutOwner()">Logout</button>
+      </div>
+
+      <!-- Filter Controls -->
+      <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+        <select class="form-select" id="statusFilter" style="max-width: 200px;" onchange="loadModerationData()">
+          <option value="">All Statuses</option>
+          <option value="pending">Pending Only</option>
+          <option value="approved">Approved Only</option>
+          <option value="archived">Archived Only</option>
+        </select>
+      </div>
+
+      <div class="testimonials-grid" id="moderationContainer">
         <!-- Rendered via JS -->
       </div>
     </div>
@@ -475,7 +589,7 @@
         <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Copy and paste this snippet directly into your React, Next.js, HTML, or Webflow website.</p>
         
         <div class="form-group">
-          <label class="form-label">Widget Type</label>
+          <label class="form-label">Widget Layout Style</label>
           <select class="form-select" id="embedType" onchange="updateEmbedSnippet()">
             <option value="grid">Grid Wall</option>
             <option value="carousel">Interactive Carousel</option>
@@ -484,10 +598,17 @@
         </div>
 
         <div class="form-group">
-          <label class="form-label">Generated iframe Snippet</label>
-          <div class="code-block" id="iframeSnippet">
-            Loading code snippet...
-          </div>
+          <label class="form-label">Theme Mode</label>
+          <select class="form-select" id="embedTheme" onchange="updateEmbedSnippet()">
+            <option value="dark">Dark Theme</option>
+            <option value="light">Light Theme</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Generated iframe HTML Snippet</label>
+          <div class="code-block" id="iframeSnippet">Loading code snippet...</div>
+          <button class="btn-secondary" style="margin-top: 0.75rem; width: 100%; text-align: center;" onclick="copyEmbedSnippet()">📋 Copy Code to Clipboard</button>
         </div>
       </div>
     </div>
@@ -495,18 +616,19 @@
   </div>
 
   <footer>
-    Proofly REST API Backend & Website • Running Live on Port 5000
+    Proofly REST API Backend & Website • Live on Port 5000
   </footer>
 
   <script>
     let selectedRating = 5;
+    let authToken = localStorage.getItem('proofly_token') || '';
 
     function switchTab(tabId) {
       document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
       document.querySelectorAll('.nav-tab').forEach(el => el.classList.remove('active'));
       
       document.getElementById(`tab-${tabId}`).classList.add('active');
-      event.target.classList.add('active');
+      document.getElementById(`tabBtn-${tabId}`).classList.add('active');
 
       if (tabId === 'wall') loadWallOfLove();
       if (tabId === 'moderation') loadModerationData();
@@ -522,34 +644,70 @@
       });
     }
 
+    async function quickLoginOwner() {
+      try {
+        const res = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: 'owner@proofly.io', password: 'Password123!' }),
+        });
+        const data = await res.json();
+        if (data.success) {
+          authToken = data.accessToken;
+          localStorage.setItem('proofly_token', authToken);
+          document.getElementById('authStatusBanner').style.display = 'flex';
+          alert('Logged in successfully as demo owner!');
+          loadModerationData();
+        } else {
+          alert('Login failed: ' + data.message);
+        }
+      } catch (e) {
+        alert('Login error: ' + e.message);
+      }
+    }
+
+    function logoutOwner() {
+      authToken = '';
+      localStorage.removeItem('proofly_token');
+      document.getElementById('authStatusBanner').style.display = 'none';
+      loadModerationData();
+    }
+
     async function loadWallOfLove() {
       try {
         const res = await fetch('/api/public/spaces/acme-corp/wall');
         const data = await res.json();
 
+        if (!data.success) return;
+
         // Render Stats
         document.getElementById('statsContainer').innerHTML = `
           <div class="stat-card">
-            <span class="stat-label">Average Rating</span>
-            <span class="stat-value">5.0 ★</span>
-            <span class="stat-subtext">Based on 100% verified clients</span>
+            <div class="stat-label">Average Rating</div>
+            <div class="stat-value">5.0 ★</div>
+            <div class="stat-subtext">Based on verified reviews</div>
           </div>
           <div class="stat-card">
-            <span class="stat-label">Approved Reviews</span>
-            <span class="stat-value">${data.testimonials.length}</span>
-            <span class="stat-subtext">Live on Wall of Love</span>
+            <div class="stat-label">Approved Reviews</div>
+            <div class="stat-value">${data.testimonials.length}</div>
+            <div class="stat-subtext">Live on Wall of Love</div>
           </div>
           <div class="stat-card">
-            <span class="stat-label">Space Slug</span>
-            <span class="stat-value" style="font-size: 1.5rem; color: var(--accent);">acme-corp</span>
-            <span class="stat-subtext">Public endpoint active</span>
+            <div class="stat-label">Space Slug</div>
+            <div class="stat-value" style="font-size: 1.5rem; color: var(--accent);">acme-corp</div>
+            <div class="stat-subtext">Public endpoint active</div>
           </div>
         `;
 
         // Render Cards
+        if (data.testimonials.length === 0) {
+          document.getElementById('wallContainer').innerHTML = '<div style="color: var(--text-muted);">No approved reviews yet. Submit one or approve a pending review in Moderation!</div>';
+          return;
+        }
+
         const wallHtml = data.testimonials.map(item => `
           <div class="testimonial-card">
-            ${item.featured ? '<span class="featured-badge">Featured</span>' : ''}
+            ${item.featured ? '<span class="badge-pill badge-featured">Featured</span>' : ''}
             <div>
               <div class="stars">${'★'.repeat(item.rating)}</div>
               <p class="review-text">"${item.reviewText}"</p>
@@ -593,18 +751,18 @@
         const data = await res.json();
 
         if (data.success) {
-          formAlert.style.color = 'var(--success)';
+          formAlert.className = 'alert-box alert-success';
           formAlert.innerText = '✅ Thank you! Your review has been submitted for moderation.';
           formAlert.style.display = 'block';
           document.getElementById('publicReviewForm').reset();
           setRating(5);
         } else {
-          formAlert.style.color = 'var(--danger)';
+          formAlert.className = 'alert-box alert-danger';
           formAlert.innerText = `❌ Error: ${data.message}`;
           formAlert.style.display = 'block';
         }
       } catch (err) {
-        formAlert.style.color = 'var(--danger)';
+        formAlert.className = 'alert-box alert-danger';
         formAlert.innerText = '❌ Failed to submit review. Server error.';
         formAlert.style.display = 'block';
       } finally {
@@ -612,14 +770,127 @@
       }
     }
 
-    async function updateEmbedSnippet() {
-      const type = document.getElementById('embedType').value;
-      const res = await fetch(`/api/public/spaces/acme-corp/embed?type=${type}&theme=dark`);
-      const data = await res.json();
-      document.getElementById('iframeSnippet').innerText = data.snippets.iframeCode;
+    async function loadModerationData() {
+      if (!authToken) {
+        await quickLoginOwner();
+      }
+
+      const statusFilter = document.getElementById('statusFilter').value;
+      let url = '/api/testimonials';
+      if (statusFilter) url += `?status=${statusFilter}`;
+
+      try {
+        const res = await fetch(url, {
+          headers: { 'Authorization': `Bearer ${authToken}` },
+        });
+        const data = await res.json();
+
+        if (!data.success) {
+          document.getElementById('moderationContainer').innerHTML = `<div style="color: var(--danger);">Failed to load testimonials: ${data.message}</div>`;
+          return;
+        }
+
+        const cardsHtml = data.testimonials.map(item => `
+          <div class="testimonial-card">
+            <span class="badge-pill badge-status badge-${item.status}">${item.status}</span>
+            ${item.featured ? '<span class="badge-pill badge-featured">Featured</span>' : ''}
+            <div style="margin-top: 1.5rem;">
+              <div class="stars">${'★'.repeat(item.rating)}</div>
+              <p class="review-text">"${item.reviewText}"</p>
+            </div>
+            <div class="card-header">
+              <img src="${item.avatarUrl || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80'}" class="avatar" alt="avatar">
+              <div>
+                <div class="author-name">${item.clientName}</div>
+                <div class="author-role">${item.email} • ${item.companyRole || 'Client'}</div>
+              </div>
+            </div>
+            <div class="card-actions">
+              ${item.status !== 'approved' ? `<button class="btn-action btn-approve" onclick="updateReviewStatus('${item._id}', 'approved')">✓ Approve</button>` : ''}
+              ${item.status !== 'archived' ? `<button class="btn-action btn-delete" onclick="updateReviewStatus('${item._id}', 'archived')">📁 Archive</button>` : ''}
+              <button class="btn-action btn-feature" onclick="toggleFeatured('${item._id}', ${!item.featured})">${item.featured ? '⭐ Unfeature' : '★ Feature'}</button>
+              <button class="btn-action btn-delete" onclick="deleteReview('${item._id}')">🗑️ Delete</button>
+            </div>
+          </div>
+        `).join('');
+
+        document.getElementById('moderationContainer').innerHTML = cardsHtml || '<div style="color: var(--text-muted);">No reviews found matching filter.</div>';
+      } catch (err) {
+        console.error(err);
+      }
     }
 
-    // Load initial data
+    async function updateReviewStatus(id, newStatus) {
+      try {
+        const res = await fetch(`/api/testimonials/${id}/status`, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${authToken}`
+          },
+          body: JSON.stringify({ status: newStatus }),
+        });
+        const data = await res.json();
+        if (data.success) {
+          loadModerationData();
+        }
+      } catch (e) {
+        alert(e.message);
+      }
+    }
+
+    async function toggleFeatured(id, featuredState) {
+      try {
+        const res = await fetch(`/api/testimonials/${id}/featured`, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${authToken}`
+          },
+          body: JSON.stringify({ featured: featuredState }),
+        });
+        const data = await res.json();
+        if (data.success) {
+          loadModerationData();
+        }
+      } catch (e) {
+        alert(e.message);
+      }
+    }
+
+    async function deleteReview(id) {
+      if (!confirm('Are you sure you want to delete this testimonial?')) return;
+      try {
+        const res = await fetch(`/api/testimonials/${id}`, {
+          method: 'DELETE',
+          headers: { 'Authorization': `Bearer ${authToken}` },
+        });
+        const data = await res.json();
+        if (data.success) {
+          loadModerationData();
+        }
+      } catch (e) {
+        alert(e.message);
+      }
+    }
+
+    async function updateEmbedSnippet() {
+      const type = document.getElementById('embedType').value;
+      const theme = document.getElementById('embedTheme').value;
+      const res = await fetch(`/api/public/spaces/acme-corp/embed?type=${type}&theme=${theme}`);
+      const data = await res.json();
+      if (data.success) {
+        document.getElementById('iframeSnippet').innerText = data.snippets.iframeCode;
+      }
+    }
+
+    function copyEmbedSnippet() {
+      const codeText = document.getElementById('iframeSnippet').innerText;
+      navigator.clipboard.writeText(codeText);
+      alert('Copied iframe snippet to clipboard!');
+    }
+
+    // Auto-login on startup & load Wall of Love
     loadWallOfLove();
   </script>
 </body>
